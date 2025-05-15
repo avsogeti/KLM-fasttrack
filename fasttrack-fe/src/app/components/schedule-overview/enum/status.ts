@@ -1,0 +1,6 @@
+export enum Status {
+  DRAFT = 'DRAFT',
+  REQUESTED = 'REQUESTED',
+  SCHEDULED = 'SCHEDULED',
+  ARCHIVED = 'ARCHIVED',
+}

@@ -1,0 +1,21 @@
+@if (holidays().length === 0) {
+  <p>no holidays available</p>
+} @else {
+  @for (holiday of holidays(); track $index) {
+    <div class="holiday-wrapper">
+      <div class="value-display">
+        <label>Holiday label :</label>
+        <p>{{ holiday.holidayLabel }}</p>
+      </div>
+      <div class="value-display">
+        <label>Start date :</label>
+        <p>{{ holiday.startOfHoliday | date:  'dd/MM/yyyy' }}</p>
+      </div>
+      <div class="value-display">
+        <label>End date: </label>
+        <p>{{ holiday.endOfHoliday  | date:  'dd/MM/yyyy' }}</p>
+      </div>
+      <button (click)="deleteHoliday(holiday)">remove</button>
+    </div>
+  }
+}

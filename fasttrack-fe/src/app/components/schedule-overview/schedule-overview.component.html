@@ -1,0 +1,36 @@
+<p>create employee</p>
+<form [formGroup]="employeeForm">
+  <input type="text" formControlName="name" placeholder="name"/>
+  <button [disabled]="getEmployeeName().invalid" (click)="createEmployee()">create employee</button>
+</form>
+
+<form [formGroup]="employeeForm">
+  <input type="text" formControlName="employeeId" placeholder="employeeId"/>
+  <button (click)="getHolidays()">check holidays</button>
+</form>
+
+<label>EmployeeId</label>
+<p>{{ employeeId }}</p>
+
+<p>create Holiday</p>
+<form [formGroup]="holidayForm">
+  <label>Holiday name:</label>
+  <input type="text" formControlName="holidayLabel" placeholder="holidayLabel"/>
+  <label>EmployeeId: </label>
+  <input type="text" formControlName="employeeId" placeholder="employeeId"/>
+  <label>Start of holiday:</label>
+  <input type="date" formControlName="startOfHoliday" placeholder="holidayLabel"/>
+  <label>end of holiday:</label>
+  <input type="date" formControlName="endOfHoliday" placeholder="holidayLabel"/>
+  <label>status:</label>
+  <select formControlName="status">
+    @for (status of statusList; track $index) {
+      <option [value]="status">{{ status }}</option>
+    }
+  </select>
+
+  <button (click)="createHolidayOnClick()">create holiday</button>
+</form>
+
+<p>view holiday</p>
+<app-schedule-list [holidays]="holidayList"></app-schedule-list>
